@@ -22,8 +22,8 @@ Networkmanager, permanent:
 nmcli connection modify tap0 master br0
 ```
 
-To enable internet access: connect bridge also to ethernet interface
-If internet is on Wifi, configure NAT between bridge and Wifi interface
+* To enable internet access: connect bridge also to ethernet interface
+* If internet is on Wifi, configure NAT between bridge and Wifi interface
 
 ### Connection up
 ```
@@ -80,12 +80,13 @@ qemu -enable-kvm -cpu host -machine q35 -device intel-iommu -hda ./archlinux.img
 
 # Mosquitto
 
--create passwords.txt with name:password
--process file sudo mosquitto_passwd -U ./passwords.txt
--configure password_file /etc/mosquitto/passwords.txt
+* create passwords.txt with name:password
+* process file sudo mosquitto_passwd -U ./passwords.txt
+* configure password_file /etc/mosquitto/passwords.txt
 
 ## Configure server
 /etc/mosquitto/mosquitto.conf   <- must be owned by user/group mosquitto
+```
 per_listener_settings true
 listener 1883
 password_file /etc/mosquitto/passwords.txt
@@ -94,6 +95,7 @@ certfile /etc/mosquitto/certs/server_crt.pem
 keyfile /etc/mosquitto/certs/server_key.pem
 cafile /etc/mosquitto/ca_certificates/ca.crt
 password_file /etc/mosquitto/passwords.txt
+```
 
 Start mosquitto server/broker:
 ```
